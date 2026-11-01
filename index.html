@@ -6,6 +6,14 @@
   <title>Giáo Trình Chiết Tự Hán Tự - Đề Án Cải Cách Giáo Dục 2026</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lenis Smooth Scroll CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <!-- Atropos 3D Parallax Hover CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/atropos@2.0.2/atropos.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/atropos@2.0.2/atropos.min.js"></script>
+  <!-- Hanzi Writer Animated Chinese Calligraphy CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -94,6 +102,34 @@
       -webkit-backdrop-filter: blur(16px);
       background-color: rgba(251, 248, 242, 0.9);
       border-bottom: 1px solid #EAE5DB;
+    }
+
+    /* Lenis Smooth Scroll Fixes */
+    html.lenis, html.lenis body {
+      height: auto;
+    }
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+    .lenis.lenis-scrolling iframe {
+      pointer-events: none;
+    }
+
+    /* Atropos 3D Book styling */
+    .book-atropos {
+      perspective: 1200px;
+    }
+    .atropos-inner {
+      overflow: visible !important;
+    }
+    .atropos-highlight {
+      background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35), transparent 60%) !important;
     }
 
     /* Scroll reveal */
@@ -271,13 +307,21 @@
             <!-- Ambient Red Glow -->
             <div class="absolute -inset-6 bg-gradient-to-tr from-[#8C1D24]/20 via-amber-200/30 to-red-100/40 rounded-full blur-3xl -z-10 group-hover:scale-110 transition-transform duration-700"></div>
 
-            <!-- Free-standing 3D Mockup with pure alpha drop shadow (No square border box) -->
-            <div class="float-book flex justify-center">
-              <img 
-                src="anh_minh_hoa/Bia_Chinh/Bia_Sach_Chiet_Tu_1_Mockup_Transparent.png" 
-                alt="Bìa Sách Triết Tự 1 3D Mockup - Tác giả Vũ Kim Anh (武金英)"
-                class="w-full max-w-[340px] sm:max-w-[380px] h-auto object-contain drop-shadow-[0_25px_35px_rgba(140,29,36,0.22)] group-hover:scale-[1.03] transition-all duration-500"
-              >
+            <!-- Free-standing 3D Mockup with Atropos 3D Tilt & Alpha Drop Shadow -->
+            <div class="atropos book-atropos w-full max-w-[340px] sm:max-w-[380px] mx-auto float-book">
+              <div class="atropos-scale">
+                <div class="atropos-rotate">
+                  <div class="atropos-inner flex justify-center">
+                    <img 
+                      src="anh_minh_hoa/Bia_Chinh/Bia_Sach_Chiet_Tu_1_Mockup_Transparent.webp" 
+                      alt="Bìa Sách Triết Tự 1 3D Mockup - Tác giả Vũ Kim Anh (武金英)"
+                      data-atropos-offset="4"
+                      fetchpriority="high"
+                      class="w-full h-auto object-contain drop-shadow-[0_25px_35px_rgba(140,29,36,0.25)] transition-all duration-300"
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="text-center mt-3 flex items-center justify-center space-x-2">
@@ -437,7 +481,7 @@
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
         <!-- Bài 1 -->
         <div class="feature-card bg-[#FDFBF7] border border-[#EAE5DB] rounded-2xl p-4 overflow-hidden animate-on-scroll delay-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
-          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%201.jpg" alt="Bìa Bài 1" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
+          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%201.webp" alt="Bìa Bài 1" loading="lazy" decoding="async" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
           <div class="text-[11px] font-bold text-[#8C1D24] uppercase">Bài 1 · 12 Từ</div>
           <h4 class="font-serifcjk text-sm font-bold text-gray-900 truncate">你好！· Xin Chào</h4>
           <p class="text-[11px] text-gray-500 mt-1 truncate">Bộ Nhân đứng, Nữ, Tử, Môn</p>
@@ -445,7 +489,7 @@
 
         <!-- Bài 2 -->
         <div class="feature-card bg-[#FDFBF7] border border-[#EAE5DB] rounded-2xl p-4 overflow-hidden animate-on-scroll delay-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
-          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%202.jpg" alt="Bìa Bài 2" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
+          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%202.webp" alt="Bìa Bài 2" loading="lazy" decoding="async" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
           <div class="text-[11px] font-bold text-[#8C1D24] uppercase">Bài 2 · 14 Từ</div>
           <h4 class="font-serifcjk text-sm font-bold text-gray-900 truncate">你叫什么名字？· Bạn Tên Là Gì?</h4>
           <p class="text-[11px] text-gray-500 mt-1 truncate">Bộ Khẩu, Thược, Mịch, Tịch</p>
@@ -453,7 +497,7 @@
 
         <!-- Bài 3 -->
         <div class="feature-card bg-[#FDFBF7] border border-[#EAE5DB] rounded-2xl p-4 overflow-hidden animate-on-scroll delay-300 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
-          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%203.jpg" alt="Bìa Bài 3" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
+          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%203.webp" alt="Bìa Bài 3" loading="lazy" decoding="async" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
           <div class="text-[11px] font-bold text-[#8C1D24] uppercase">Bài 3 · 15 Từ</div>
           <h4 class="font-serifcjk text-sm font-bold text-gray-900 truncate">这是我的老师 · Đây Là Thầy Tôi</h4>
           <p class="text-[11px] text-gray-500 mt-1 truncate">Bộ Nhật, Thổ, Lão, Cân</p>
@@ -461,7 +505,7 @@
 
         <!-- Bài 4 -->
         <div class="feature-card bg-[#FDFBF7] border border-[#EAE5DB] rounded-2xl p-4 overflow-hidden animate-on-scroll delay-400 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
-          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%204.jpg" alt="Bìa Bài 4" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
+          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%204.webp" alt="Bìa Bài 4" loading="lazy" decoding="async" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
           <div class="text-[11px] font-bold text-[#8C1D24] uppercase">Bài 4 · 16 Từ</div>
           <h4 class="font-serifcjk text-sm font-bold text-gray-900 truncate">你在哪儿工作？· Làm Việc Ở Đâu?</h4>
           <p class="text-[11px] text-gray-500 mt-1 truncate">Bộ Vi, Nghiễm, Lực, Bốc</p>
@@ -469,7 +513,7 @@
 
         <!-- Bài 5 -->
         <div class="feature-card bg-[#FDFBF7] border border-[#EAE5DB] rounded-2xl p-4 overflow-hidden animate-on-scroll delay-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
-          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%205.jpg" alt="Bìa Bài 5" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
+          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%205.webp" alt="Bìa Bài 5" loading="lazy" decoding="async" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
           <div class="text-[11px] font-bold text-[#8C1D24] uppercase">Bài 5 · 18 Từ</div>
           <h4 class="font-serifcjk text-sm font-bold text-gray-900 truncate">我家有五口人 · Nhà Tôi Có 5 Người</h4>
           <p class="text-[11px] text-gray-500 mt-1 truncate">Bộ Miên, Thị, Phụ, Hòa</p>
@@ -477,7 +521,7 @@
 
         <!-- Bài 6 -->
         <div class="feature-card bg-[#FDFBF7] border border-[#EAE5DB] rounded-2xl p-4 overflow-hidden animate-on-scroll delay-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
-          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%206.jpg" alt="Bìa Bài 6" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
+          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%206.webp" alt="Bìa Bài 6" loading="lazy" decoding="async" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
           <div class="text-[11px] font-bold text-[#8C1D24] uppercase">Bài 6 · 18 Từ</div>
           <h4 class="font-serifcjk text-sm font-bold text-gray-900 truncate">我想喝茶 · Tôi Muốn Uống Trà</h4>
           <p class="text-[11px] text-gray-500 mt-1 truncate">Bộ Thảo, Thủy, Mộc, Tâm</p>
@@ -485,7 +529,7 @@
 
         <!-- Bài 7 -->
         <div class="feature-card bg-[#FDFBF7] border border-[#EAE5DB] rounded-2xl p-4 overflow-hidden animate-on-scroll delay-300 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
-          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%207.jpg" alt="Bìa Bài 7" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
+          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%207.webp" alt="Bìa Bài 7" loading="lazy" decoding="async" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
           <div class="text-[11px] font-bold text-[#8C1D24] uppercase">Bài 7 · 20 Từ</div>
           <h4 class="font-serifcjk text-sm font-bold text-gray-900 truncate">你去哪儿？· Bạn Đi Đâu?</h4>
           <p class="text-[11px] text-gray-500 mt-1 truncate">Bộ Khảm, Tẩu, Thổ, Phụ</p>
@@ -493,7 +537,7 @@
 
         <!-- Bài 8 -->
         <div class="feature-card bg-[#FDFBF7] border border-[#EAE5DB] rounded-2xl p-4 overflow-hidden animate-on-scroll delay-400 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
-          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%208.jpg" alt="Bìa Bài 8" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
+          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%208.webp" alt="Bìa Bài 8" loading="lazy" decoding="async" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
           <div class="text-[11px] font-bold text-[#8C1D24] uppercase">Bài 8 · 20 Từ</div>
           <h4 class="font-serifcjk text-sm font-bold text-gray-900 truncate">今天星期几？· Hôm Nay Thứ Mấy?</h4>
           <p class="text-[11px] text-gray-500 mt-1 truncate">Bộ Nhật, Nguyệt, Kim, Tinh</p>
@@ -501,7 +545,7 @@
 
         <!-- Bài 9 -->
         <div class="feature-card bg-[#FDFBF7] border border-[#EAE5DB] rounded-2xl p-4 overflow-hidden animate-on-scroll delay-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
-          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%209.jpg" alt="Bìa Bài 9" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
+          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%209.webp" alt="Bìa Bài 9" loading="lazy" decoding="async" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
           <div class="text-[11px] font-bold text-[#8C1D24] uppercase">Bài 9 · 22 Từ</div>
           <h4 class="font-serifcjk text-sm font-bold text-gray-900 truncate">祝你生日快乐！· Chúc Mừng Sinh Nhật</h4>
           <p class="text-[11px] text-gray-500 mt-1 truncate">Bộ Kỳ, Sinh, Nhật, Khoái</p>
@@ -509,7 +553,7 @@
 
         <!-- Bài 10 -->
         <div class="feature-card bg-[#FDFBF7] border border-[#EAE5DB] rounded-2xl p-4 overflow-hidden animate-on-scroll delay-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
-          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%2010.jpg" alt="Bìa Bài 10" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
+          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%2010.webp" alt="Bìa Bài 10" loading="lazy" decoding="async" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
           <div class="text-[11px] font-bold text-[#8C1D24] uppercase">Bài 10 · 24 Từ</div>
           <h4 class="font-serifcjk text-sm font-bold text-gray-900 truncate">现在几点？· Bây Giờ Mấy Giờ?</h4>
           <p class="text-[11px] text-gray-500 mt-1 truncate">Bộ Thời, Điểm, Phân, Khắc</p>
@@ -517,7 +561,7 @@
 
         <!-- Bài 11 -->
         <div class="feature-card bg-[#FDFBF7] border border-[#EAE5DB] rounded-2xl p-4 overflow-hidden animate-on-scroll delay-300 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
-          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%2011.jpg" alt="Bìa Bài 11" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
+          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%2011.webp" alt="Bìa Bài 11" loading="lazy" decoding="async" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
           <div class="text-[11px] font-bold text-[#8C1D24] uppercase">Bài 11 · 25 Từ</div>
           <h4 class="font-serifcjk text-sm font-bold text-gray-900 truncate">苹果多少钱一斤？· Táo Bao Nhiêu Tiền?</h4>
           <p class="text-[11px] text-gray-500 mt-1 truncate">Bộ Thảo, Quả, Đa, Tiền</p>
@@ -525,7 +569,7 @@
 
         <!-- Bài 12 -->
         <div class="feature-card bg-[#FDFBF7] border border-[#EAE5DB] rounded-2xl p-4 overflow-hidden animate-on-scroll delay-400 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
-          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%2012.jpg" alt="Bìa Bài 12" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
+          <img src="anh_minh_hoa/Bia%20Bai%20Hoc/Bai%2012.webp" alt="Bìa Bài 12" loading="lazy" decoding="async" class="w-full h-44 object-cover rounded-xl mb-3 shadow-inner group-hover:scale-105 transition-transform duration-500">
           <div class="text-[11px] font-bold text-[#8C1D24] uppercase">Bài 12 · 28 Từ</div>
           <h4 class="font-serifcjk text-sm font-bold text-gray-900 truncate">明天天气怎么样？· Thời Tiết Thế Nào?</h4>
           <p class="text-[11px] text-gray-500 mt-1 truncate">Bộ Khí, Hầu, Hậu, Dương</p>
@@ -575,7 +619,7 @@
         <div class="flex flex-col justify-center items-center min-h-[420px] sm:min-h-[500px] bg-[#FAF8F5] rounded-2xl p-4 sm:p-8 border border-gray-100 relative overflow-hidden">
           <img 
             id="cover-display-img"
-            src="anh_minh_hoa/Bia_Chinh/Bia_Sach_Chiet_Tu_1_Mockup_Transparent.png" 
+            src="anh_minh_hoa/Bia_Chinh/Bia_Sach_Chiet_Tu_1_Mockup_Transparent.webp" loading="lazy" decoding="async" 
             alt="Bìa Sách Chiết Tự 1"
             class="max-h-[520px] w-auto max-w-full rounded-xl transition-all duration-300 object-contain drop-shadow-xl cursor-zoom-in hover:scale-[1.01]" onclick="openCoverLightbox()" title="Bấm để phóng to chi tiết 300 DPI"
           >
@@ -816,57 +860,114 @@
     const metricSection = document.getElementById('tong-quan');
     if (metricSection) metricObserver.observe(metricSection);
 
-    // 4. Lab Data with real illustration image paths
+    // 4. Lab Data with WebP illustrations & Hanzi Writer
     const labData = [
       {
         char: "好",
         pinyin: "/hǎo/",
         meaning: "Tốt, đẹp, hay, khỏe",
         structure: "Kết cấu Trái - Phải",
-        img: "anh_minh_hoa/Bai_1/anh%202.jpg",
+        img: "anh_minh_hoa/Bai_1/anh%202.webp",
         parts: [
-          { radical: "女 (Nữ)", desc: "Hình tượng người phụ nữ, người mẹ dịu hiền" },
-          { radical: "子 (Tử)", desc: "Đứa con thơ bé bỏng yêu thương" }
+          { radical: "女 (Nữ)", desc: "Hình tượng người phụ nữ, người mẹ dịu hiền ôm con" },
+          { radical: "子 (Tử)", desc: "Đứa con thơ bé bỏng trong vòng tay yêu thương" }
         ],
-        story: "Người mẹ (女) âu yếm ôm đứa con thơ (子) vào lòng. Trong quan niệm của người xưa, gia đình có mẹ hiền con ngoan chính là điều tuyệt vời, tốt đẹp nhất (好)."
+        story: "Người mẹ (女) âu yếm ôm đứa con thơ (子) vào lòng. Trong triết lý nhân sinh phương Đông, gia đình có mẹ hiền con ngoan chính là điều trọn vẹn, tốt đẹp nhất (好)."
       },
       {
         char: "休",
         pinyin: "/xiū/",
-        meaning: "Nghỉ ngơi, ngừng lại",
+        meaning: "Nghỉ ngơi, ngừng lại, tĩnh dưỡng",
         structure: "Kết cấu Trái - Phải",
-        img: "anh_minh_hoa/Bai_1/anh%201.jpg",
+        img: "anh_minh_hoa/Bai_1/anh%201.webp",
         parts: [
           { radical: "亻 (Nhân đứng)", desc: "Hình tượng con người đang lao động mệt mỏi" },
-          { radical: "木 (Mộc)", desc: "Cây cối rợp bóng mát bên đường" }
+          { radical: "木 (Mộc)", desc: "Cây cối rợp bóng mát thanh bình bên đường" }
         ],
-        story: "Người lao động (亻) sau nhiều giờ làm việc vất vả, tìm đến bóng râm của gốc cây đại thụ (木) ngồi tựa lưng nghỉ ngơi, lấy lại sức lực (休)."
+        story: "Người lao động (亻) sau nhiều giờ miệt mài ngoài trời nắng, tìm đến bóng râm rười rượi của gốc cây cổ thụ (木) ngồi tựa lưng nghỉ ngơi, hồi phục sinh lực (休)."
       },
       {
         char: "明",
         pinyin: "/míng/",
         meaning: "Sáng sủa, ngày mai, thấu suốt",
         structure: "Kết cấu Trái - Phải",
-        img: "anh_minh_hoa/Bai_8/anh%201.jpg",
+        img: "anh_minh_hoa/Bai_8/anh%201.webp",
         parts: [
-          { radical: "日 (Nhật)", desc: "Mặt trời chói chang ban ngày" },
-          { radical: "月 (Nguyệt)", desc: "Mặt trăng dịu êm ban đêm" }
+          { radical: "日 (Nhật)", desc: "Mặt trời chói chang quang đãng ban ngày" },
+          { radical: "月 (Nguyệt)", desc: "Vầng trăng dịu êm vằng vặc soi sáng màn đêm" }
         ],
-        story: "Khi vầng mặt trời rực rỡ (日) của ban ngày hội tụ cùng ánh trăng thanh khiết (月) của ban đêm, vũ trụ không còn góc tối nào ➔ SÁNG SỦA, RỰC RỠ (明)."
+        story: "Khi vầng thái dương rực rỡ (日) của ban ngày hòa quyện cùng ánh nguyệt thanh khiết (月) của ban đêm, khắp vũ trụ không còn góc tối nào ➔ SÁNG SỦA, MINH TRIẾT (明)."
       },
       {
         char: "安",
         pinyin: "/ān/",
         meaning: "Bình an, yên ổn, tĩnh tại",
         structure: "Kết cấu Trên - Dưới",
-        img: "anh_minh_hoa/Bai_5/anh%201.jpg",
+        img: "anh_minh_hoa/Bai_5/anh%201.webp",
         parts: [
-          { radical: "宀 (Miên)", desc: "Mái nhà che mưa che nắng gia đình" },
-          { radical: "女 (Nữ)", desc: "Bàn tay người phụ nữ vun vén bếp lửa" }
+          { radical: "宀 (Miên)", desc: "Mái nhà chở che nắng mưa, bão giông cuộc đời" },
+          { radical: "女 (Nữ)", desc: "Bàn tay người phụ nữ đảm đang vun vén mái ấm" }
         ],
-        story: "Dưới mái nhà êm ấm (宀), có bóng dáng người phụ nữ (女) tảo tần giữ gìn tổ ấm thì gia đình và lòng người bốn mùa luôn được bình an, yên ả (安)."
+        story: "Dưới mái nhà êm ấm (宀), có bóng dáng người phụ nữ (女) tảo tần giữ gìn ngọn lửa yêu thương thì cả gia đình bốn mùa luôn được bình an, vạn sự yên hòa (安)."
       }
     ];
+
+    let labWriter = null;
+
+    function renderHanziCharacter(char) {
+      const target = document.getElementById('hanzi-character-target');
+      if (!target || typeof HanziWriter === 'undefined') return;
+      target.innerHTML = '';
+      
+      try {
+        labWriter = HanziWriter.create('hanzi-character-target', char, {
+          width: 126,
+          height: 126,
+          padding: 6,
+          showOutline: true,
+          strokeAnimationSpeed: 1.1,
+          delayBetweenStrokes: 130,
+          strokeColor: '#2D2926',      // Mực tàu đậm
+          radicalColor: '#8C1D24',     // Màu đỏ son cho Bộ Thủ
+          outlineColor: '#E2DCD5',     // Nét mờ chỉ dẫn
+          drawingColor: '#8C1D24',     // Nét khi người dùng vẽ
+          drawingWidth: 12,
+          showHintAfterMisses: 1
+        });
+        labWriter.animateCharacter();
+      } catch (err) {
+        console.warn('HanziWriter error:', err);
+      }
+    }
+
+    window.replayLabCharacter = function() {
+      if (labWriter) {
+        labWriter.cancelQuiz();
+        labWriter.animateCharacter();
+        setLabStatus('Đang diễn hoạt bút pháp thư pháp theo thứ tự nét thuận...');
+      }
+    };
+
+    window.practiceLabCharacter = function(char) {
+      if (!labWriter) return;
+      setLabStatus('✍️ Dùng chuột hoặc vuốt ngón tay đồ theo nét mờ để viết thử chữ...');
+      labWriter.quiz({
+        onMistake: function(strokeData) {
+          setLabStatus('⚠️ Chưa đúng thứ tự hoặc hướng nét! Thử lại nét này nhé.');
+        },
+        onCorrectStroke: function(strokeData) {
+          setLabStatus('✨ Nét vẽ rất chuẩn! Tiếp tục nét kế tiếp...');
+        },
+        onComplete: function(summaryData) {
+          setLabStatus(`🎉 Xuất sắc! Bạn đã viết hoàn thành chữ <strong>${char}</strong>!`);
+        }
+      });
+    };
+
+    function setLabStatus(msg) {
+      const el = document.getElementById('lab-quiz-status');
+      if (el) el.innerHTML = msg;
+    }
 
     function changeChar(index) {
       document.querySelectorAll('.char-nav-btn').forEach((btn, idx) => {
@@ -880,73 +981,116 @@
       const d = labData[index];
       const box = document.getElementById('lab-display');
       if (!box) return;
+
       box.innerHTML = `
-        <div class="grid md:grid-cols-12 gap-8 items-center animate-on-scroll zoom-in in-view">
-          <div class="md:col-span-5 text-center">
-            <div class="relative inline-block rounded-2xl overflow-hidden shadow-md border border-[#EAE5DB]">
-              <img src="${d.img}" alt="${d.char}" class="w-64 h-64 object-cover">
-              <div class="absolute bottom-2 right-2 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-bold text-[#8C1D24] border border-[#EAE5DB]">
-                Tranh Cổ Phong Gốc
+        <div class="grid lg:grid-cols-12 gap-8 items-center animate-on-scroll zoom-in in-view">
+          <!-- Left: Dual Visual Arts (Cổ Phong Painting + Hanzi Writer Canvas) -->
+          <div class="lg:col-span-5 flex flex-col items-center">
+            <div class="grid grid-cols-2 gap-3 sm:gap-4 w-full max-w-md items-center">
+              <!-- 1. Tranh Cổ Phong Tượng Hình -->
+              <div class="relative rounded-2xl overflow-hidden shadow-md border border-[#EAE5DB] bg-white group">
+                <img src="${d.img}" alt="${d.char}" loading="lazy" decoding="async" class="w-full h-36 sm:h-44 object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute bottom-1.5 right-1.5 bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded text-[10px] font-bold text-white">
+                  Tranh Cổ Phong
+                </div>
+              </div>
+              
+              <!-- 2. Bút Pháp Thư Pháp Hanzi Writer -->
+              <div class="relative rounded-2xl border border-red-200/90 bg-[#FAF8F5] p-2 sm:p-2.5 flex flex-col items-center shadow-xs">
+                <div class="text-[10px] font-bold text-[#8C1D24] uppercase tracking-wider mb-1 flex items-center">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#8C1D24] mr-1 animate-pulse"></span>
+                  Bút Pháp Chuẩn
+                </div>
+                <!-- Tianzige (Ô Điền Tự Cách) -->
+                <div class="relative w-[120px] h-[120px] sm:w-[126px] sm:h-[126px] bg-white rounded-xl border border-red-100 flex items-center justify-center overflow-hidden shadow-inner">
+                  <svg class="absolute inset-0 w-full h-full pointer-events-none stroke-red-100" stroke-width="1" stroke-dasharray="2,2">
+                    <line x1="0" y1="50%" x2="100%" y2="50%" />
+                    <line x1="50%" y1="0" x2="50%" y2="100%" />
+                    <line x1="0" y1="0" x2="100%" y2="100%" stroke-dasharray="3,3" />
+                    <line x1="100%" y1="0" x2="0" y2="100%" stroke-dasharray="3,3" />
+                  </svg>
+                  <div id="hanzi-character-target" class="relative z-10 cursor-crosshair"></div>
+                </div>
+                <div class="flex items-center gap-1.5 mt-2 w-full">
+                  <button onclick="replayLabCharacter()" title="Xem lại thứ tự nét bút" class="flex-1 py-1 bg-[#8C1D24] text-white rounded text-[10px] sm:text-[11px] font-semibold hover:bg-[#6F1418] transition flex items-center justify-center shadow-xs">
+                    ▶ Nét Bút
+                  </button>
+                  <button onclick="practiceLabCharacter('${d.char}')" title="Tự tay tập viết chữ" class="flex-1 py-1 bg-white border border-[#8C1D24] text-[#8C1D24] rounded text-[10px] sm:text-[11px] font-semibold hover:bg-red-50 transition flex items-center justify-center">
+                    ✍️ Tập Viết
+                  </button>
+                </div>
               </div>
             </div>
-            <div class="mt-4">
-              <span class="font-serifcjk text-5xl font-bold text-[#8C1D24] mr-3">${d.char}</span>
-              <span class="text-xl font-bold text-gray-800">${d.pinyin}</span>
-              <div class="text-sm font-medium text-gray-500 mt-1">${d.meaning}</div>
-              <span class="inline-block mt-2 text-xs font-semibold text-[#8C1D24] bg-red-50 border border-red-200 px-3 py-0.5 rounded-full">${d.structure}</span>
+            
+            <!-- Character heading info & status -->
+            <div class="mt-4 text-center">
+              <div class="flex items-center justify-center space-x-2">
+                <span class="font-serifcjk text-4xl sm:text-5xl font-bold text-[#8C1D24]">${d.char}</span>
+                <span class="text-xl font-bold text-gray-800">${d.pinyin}</span>
+                <span class="inline-block text-xs font-semibold text-[#8C1D24] bg-red-50 border border-red-200 px-2.5 py-0.5 rounded-full">${d.structure}</span>
+              </div>
+              <div class="text-sm font-semibold text-gray-700 mt-1">${d.meaning}</div>
+              <div id="lab-quiz-status" class="text-xs text-[#8C1D24] font-medium mt-1.5 h-4 transition-all">
+                Nét đỏ son là <strong>Bộ thủ</strong> cấu thành chữ. Bấm "Tập Viết" để vẽ thử!
+              </div>
             </div>
           </div>
-          <div class="md:col-span-7">
-            <h4 class="font-serifcjk text-lg font-bold text-gray-900 mb-4 flex items-center">
-              <span class="w-2 h-2 rounded-full bg-[#8C1D24] mr-2"></span>
-              Bóc Tách Bộ Thủ Khoa Học:
+          
+          <!-- Right: Scientific Radical Breakdown & Mnemonic Story -->
+          <div class="lg:col-span-7">
+            <h4 class="font-serifcjk text-lg font-bold text-gray-900 mb-3 flex items-center">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#8C1D24] mr-2"></span>
+              Bóc Tách Bộ Thủ Khoa Học & Logic Tạo Chữ:
             </h4>
-            <div class="space-y-3 mb-6">
+            <div class="space-y-2.5 mb-5">
               ${d.parts.map(p => `
-                <div class="flex items-start bg-[#FAF8F5] p-3.5 rounded-xl border border-gray-200">
-                  <span class="font-serifcjk font-bold text-sm text-[#8C1D24] min-w-[110px] mr-2">${p.radical}:</span>
-                  <span class="text-xs sm:text-sm text-gray-600">${p.desc}</span>
+                <div class="flex items-start bg-[#FAF8F5] p-3 rounded-xl border border-gray-200">
+                  <span class="font-serifcjk font-bold text-sm text-[#8C1D24] min-w-[100px] mr-2">${p.radical}:</span>
+                  <span class="text-xs sm:text-sm text-gray-600 leading-relaxed">${p.desc}</span>
                 </div>
               `).join('')}
             </div>
             <div class="bg-red-50/70 p-4 rounded-xl border border-red-100">
-              <span class="text-xs font-bold text-[#8C1D24] uppercase tracking-wider block mb-1">💡 Câu Chuyện Ghi Nhớ Tượng Hình:</span>
+              <span class="text-xs font-bold text-[#8C1D24] uppercase tracking-wider block mb-1">💡 Câu Chuyện Ghi Nhớ Tượng Hình Độc Quyền:</span>
               <p class="text-sm text-gray-700 font-medium leading-relaxed">${d.story}</p>
             </div>
           </div>
         </div>
       `;
+
+      // Render HanziWriter animation
+      renderHanziCharacter(d.char);
     }
 
         // 5. Interactive Cover View Switcher Logic (100% UNIFIED & CONSISTENT)
     window.coverViews = {
       mockup: {
-        src: 'anh_minh_hoa/Bia_Chinh/Bia_Sach_Chiet_Tu_1_Mockup_Transparent.png',
+        src: 'anh_minh_hoa/Bia_Chinh/Bia_Sach_Chiet_Tu_1_Mockup_Transparent.webp',
         badge: '🌟 Bản Dựng Phối Cảnh 3D · Tác Giả Vũ Kim Anh (武金英)',
         desc: 'Bản dựng 3D chuẩn xác tỷ lệ A4, vòm tròn Thiên Đàn giữ trọn nét thanh tú trong không gian 3 chiều.'
       },
       studio: {
-        src: 'anh_minh_hoa/Bia_Chinh/Bia_Sach_Chiet_Tu_1_Studio_Mockup.jpg',
+        src: 'anh_minh_hoa/Bia_Chinh/Bia_Sach_Chiet_Tu_1_Studio_Mockup.webp',
         badge: '📸 Phối Cảnh Studio Bàn Làm Việc (Đứng & Nằm)',
         desc: 'Bộ phối cảnh đồng bộ: cuốn đứng thể hiện mặt tiền và gáy sách, cuốn nằm thể hiện độ dày và bìa sau.'
       },
       spread: {
-        src: 'anh_minh_hoa/Bia_Chinh/Bia_Sach_Spread_Mockup.jpg',
+        src: 'anh_minh_hoa/Bia_Chinh/Bia_Sach_Spread_Mockup.webp',
         badge: '🖼️ Bìa Trải Phẳng Toàn Cảnh (Bìa Sau + Gáy 12mm + Bìa Trước)',
         desc: 'Quy chuẩn trải rộng toàn bộ bìa sách liền mạch khổ in offset 300 DPI thương mại.'
       },
       front: {
-        src: 'anh_minh_hoa/Bia_Sach/bia_truoc_chuan.jpg',
+        src: 'anh_minh_hoa/Bia_Sach/bia_truoc_chuan.webp',
         badge: '📖 Mặt Bìa Trước: "Sách Triết Tự 1" · Thiên Đàn & Mai Đỏ',
         desc: 'Họa tiết Điện Kì Niên trong khuôn tròn kinh điển, hoa mai thanh nhã và con dấu triện son [武金英].'
       },
       back: {
-        src: 'anh_minh_hoa/Bia_Sach/bia_sau_chuan.jpg',
+        src: 'anh_minh_hoa/Bia_Sach/bia_sau_chuan.webp',
         badge: '📝 Mặt Bìa Sau: Phương Pháp Đột Phá & Mã Vạch ISBN',
         desc: 'Khung kem trang nhã tóm lược 3 cam kết phương pháp, logo Tủ sách Đào tạo Độc quyền và ISBN.'
       },
       spine: {
-        src: 'anh_minh_hoa/Bia_Sach/gay_sach_chuan.jpg',
+        src: 'anh_minh_hoa/Bia_Sach/gay_sach_chuan.webp',
         badge: '📏 Gáy Sách: Độ Dày Chuẩn 12mm Cho 185 Trang Ruột',
         desc: 'Gáy sách đỏ son với tên sách xoay dọc uy nghi và tên tác giả Vũ Kim Anh (武金英).'
       }
@@ -1029,9 +1173,89 @@
       if (e.key === 'Escape') window.closeRequestModal();
     });
 
+    // Initialize Lenis Smooth Scroll
+    let lenis = null;
+    try {
+      if (typeof Lenis !== 'undefined') {
+        lenis = new Lenis({
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smoothWheel: true,
+          touchMultiplier: 1.5
+        });
+        window.lenis = lenis;
+
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#') {
+              const target = document.querySelector(targetId);
+              if (target) {
+                e.preventDefault();
+                lenis.scrollTo(target, { offset: -70 });
+              }
+            }
+          });
+        });
+      }
+    } catch(e) {
+      console.warn('Lenis init error:', e);
+    }
+
+    // Modal stop/start lenis scroll
+    const origOpenModal = window.openRequestModal;
+    window.openRequestModal = function(type) {
+      if (origOpenModal) origOpenModal(type);
+      if (lenis) lenis.stop();
+    };
+
+    const origCloseModal = window.closeRequestModal;
+    window.closeRequestModal = function() {
+      if (origCloseModal) origCloseModal();
+      if (lenis) lenis.start();
+    };
+
+    const origOpenLightbox = window.openCoverLightbox;
+    window.openCoverLightbox = function() {
+      if (origOpenLightbox) origOpenLightbox();
+      if (lenis) lenis.stop();
+    };
+
+    const origCloseLightbox = window.closeCoverLightbox;
+    window.closeCoverLightbox = function() {
+      if (origCloseLightbox) origCloseLightbox();
+      if (lenis) lenis.start();
+    };
+
     // Initialize on DOM ready
     document.addEventListener('DOMContentLoaded', () => {
+      // 1. Initialize Atropos 3D parallax tilt
+      try {
+        if (typeof Atropos !== 'undefined') {
+          Atropos({
+            el: '.book-atropos',
+            activeOffset: 35,
+            shadowScale: 1.05,
+            highlight: true,
+            rotateXMax: 14,
+            rotateYMax: 14,
+          });
+        }
+      } catch (err) {
+        console.warn('Atropos error:', err);
+      }
+
+      // 2. Load first character in Lab
       changeChar(0);
+
+      // 3. Set default cover view
       window.switchCoverView('mockup');
     });
   </script>
