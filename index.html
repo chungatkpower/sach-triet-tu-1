@@ -191,12 +191,12 @@
   <!-- NAVIGATION -->
   <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 bg-[#FBF8F2]/95 backdrop-blur-md transition-all duration-300 border-b border-[#EAE5DB]/70 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-      <!-- Left: Brand & Seal -->
-      <div class="flex items-center space-x-3 flex-shrink-0">
-        <span class="seal-stamp text-xs px-2.5 py-1 font-bold whitespace-nowrap">武金英</span>
+      <!-- Left: Brand & Seal (Optimized for Mobile & Desktop) -->
+      <div class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+        <span class="seal-stamp text-[10px] sm:text-xs px-2 py-0.5 sm:px-2.5 sm:py-1 font-bold whitespace-nowrap">武金英</span>
         <div class="flex flex-col justify-center">
-          <span class="font-serifcjk text-lg sm:text-xl font-bold tracking-wider text-[#8C1D24] leading-tight whitespace-nowrap">CHIẾT TỰ HÁN TỰ</span>
-          <span class="text-[10px] sm:text-[11px] text-gray-500 font-semibold tracking-wider uppercase leading-tight whitespace-nowrap">Đề Án Cải Cách Giáo Dục 2026</span>
+          <span class="font-serifcjk text-sm sm:text-lg xl:text-xl font-bold tracking-wide sm:tracking-wider text-[#8C1D24] leading-tight whitespace-nowrap">CHIẾT TỰ HÁN TỰ</span>
+          <span class="text-[8px] sm:text-[10px] xl:text-[11px] text-gray-500 font-semibold tracking-wider uppercase leading-tight whitespace-nowrap">Đề Án Cải Cách Giáo Dục 2026</span>
         </div>
       </div>
 
@@ -210,9 +210,9 @@
         <a href="#gia-tri" class="px-2 py-1.5 hover:text-[#8C1D24] transition whitespace-nowrap flex items-center">Hiệu Quả</a>
       </div>
 
-      <!-- Right: Action CTA Button (Single line, perfectly centered) -->
-      <div class="flex items-center space-x-3 flex-shrink-0">
-        <a href="#ban-quyen" class="bg-[#8C1D24] hover:bg-[#6F1418] text-white px-4 xl:px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition shadow-sm hover:shadow-md whitespace-nowrap flex items-center justify-center">
+      <!-- Right: Action CTA Button linking directly to Google Form -->
+      <div class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+        <a href="https://forms.gle/H9cDjkCnXv2kv3VR8" target="_blank" rel="noopener noreferrer" class="bg-[#8C1D24] hover:bg-[#6F1418] text-white px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold tracking-wider uppercase transition shadow-sm hover:shadow-md whitespace-nowrap flex items-center justify-center active:scale-95">
           Đăng Ký Bản Mẫu
         </a>
       </div>
@@ -401,19 +401,19 @@
         </p>
       </div>
 
-      <!-- Character Buttons -->
-      <div class="flex flex-wrap justify-center gap-3 mb-10">
-        <button onclick="changeChar(0)" id="btn-0" class="char-nav-btn px-6 py-2.5 rounded-full text-sm font-semibold border border-[#8C1D24] bg-[#8C1D24] text-white shadow-sm transition">
-          Chữ 好 (hǎo - Tốt, Hay)
+      <!-- Character Buttons (Responsive 2x2 on mobile, flex on desktop) -->
+      <div class="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 max-w-lg sm:max-w-none mx-auto">
+        <button onclick="changeChar(0)" id="btn-0" class="char-nav-btn px-3.5 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold border border-[#8C1D24] bg-[#8C1D24] text-white shadow-sm transition truncate">
+          好 (hǎo - Tốt, Hay)
         </button>
-        <button onclick="changeChar(1)" id="btn-1" class="char-nav-btn px-6 py-2.5 rounded-full text-sm font-semibold border border-gray-300 bg-white text-gray-700 hover:border-[#8C1D24] transition">
-          Chữ 休 (xiū - Nghỉ ngơi)
+        <button onclick="changeChar(1)" id="btn-1" class="char-nav-btn px-3.5 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold border border-gray-300 bg-white text-gray-700 hover:border-[#8C1D24] transition truncate">
+          休 (xiū - Nghỉ ngơi)
         </button>
-        <button onclick="changeChar(2)" id="btn-2" class="char-nav-btn px-6 py-2.5 rounded-full text-sm font-semibold border border-gray-300 bg-white text-gray-700 hover:border-[#8C1D24] transition">
-          Chữ 明 (míng - Sáng sủa)
+        <button onclick="changeChar(2)" id="btn-2" class="char-nav-btn px-3.5 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold border border-gray-300 bg-white text-gray-700 hover:border-[#8C1D24] transition truncate">
+          明 (míng - Sáng sủa)
         </button>
-        <button onclick="changeChar(3)" id="btn-3" class="char-nav-btn px-6 py-2.5 rounded-full text-sm font-semibold border border-gray-300 bg-white text-gray-700 hover:border-[#8C1D24] transition">
-          Chữ 安 (ān - Bình an)
+        <button onclick="changeChar(3)" id="btn-3" class="char-nav-btn px-3.5 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold border border-gray-300 bg-white text-gray-700 hover:border-[#8C1D24] transition truncate">
+          安 (ān - Bình an)
         </button>
       </div>
 
@@ -550,25 +550,25 @@
           Bìa sách chính thức "Sách triết tự 1" với tông màu đỏ son chu sa trang nhã, họa tiết kiến trúc Điện Kì Niên (Thiên Đàn) & hoa mai cổ điển. Bấm các góc nhìn bên dưới để thẩm định chi tiết:
         </p>
 
-        <!-- Interactive Cover View Tabs (6 Views) -->
-        <div class="flex flex-wrap items-center justify-center gap-2 mt-8">
-          <button onclick="switchCoverView('mockup')" id="tab-mockup" class="cover-tab-btn active px-4 py-2 rounded-full text-xs font-semibold tracking-wide border border-[#8C1D24] bg-[#8C1D24] text-white shadow-sm">
-            🌟 Bản Dựng 3D Nổi
+        <!-- Interactive Cover View Tabs (6 Views, Mobile Optimized) -->
+        <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8">
+          <button onclick="switchCoverView('mockup')" id="tab-mockup" class="cover-tab-btn active px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold tracking-wide border border-[#8C1D24] bg-[#8C1D24] text-white shadow-sm">
+            🌟 Bản Dựng 3D
           </button>
-          <button onclick="switchCoverView('studio')" id="tab-studio" class="cover-tab-btn px-4 py-2 rounded-full text-xs font-semibold tracking-wide border border-gray-200 bg-white text-gray-700">
-            📸 Phối Cảnh Studio 8K
+          <button onclick="switchCoverView('studio')" id="tab-studio" class="cover-tab-btn px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold tracking-wide border border-gray-200 bg-white text-gray-700">
+            📸 Studio Bàn
           </button>
-          <button onclick="switchCoverView('spread')" id="tab-spread" class="cover-tab-btn px-4 py-2 rounded-full text-xs font-semibold tracking-wide border border-gray-200 bg-white text-gray-700">
-            🖼️ Bìa Trải Phẳng Toàn Cảnh
+          <button onclick="switchCoverView('spread')" id="tab-spread" class="cover-tab-btn px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold tracking-wide border border-gray-200 bg-white text-gray-700">
+            🖼️ Trải Phẳng
           </button>
-          <button onclick="switchCoverView('front')" id="tab-front" class="cover-tab-btn px-4 py-2 rounded-full text-xs font-semibold tracking-wide border border-gray-200 bg-white text-gray-700">
-            📖 Mặt Trước (Front)
+          <button onclick="switchCoverView('front')" id="tab-front" class="cover-tab-btn px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold tracking-wide border border-gray-200 bg-white text-gray-700">
+            📖 Bìa Trước
           </button>
-          <button onclick="switchCoverView('back')" id="tab-back" class="cover-tab-btn px-4 py-2 rounded-full text-xs font-semibold tracking-wide border border-gray-200 bg-white text-gray-700">
-            📝 Mặt Sau (Back)
+          <button onclick="switchCoverView('back')" id="tab-back" class="cover-tab-btn px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold tracking-wide border border-gray-200 bg-white text-gray-700">
+            📝 Bìa Sau
           </button>
-          <button onclick="switchCoverView('spine')" id="tab-spine" class="cover-tab-btn px-4 py-2 rounded-full text-xs font-semibold tracking-wide border border-gray-200 bg-white text-gray-700">
-            📏 Gáy Sách (12mm)
+          <button onclick="switchCoverView('spine')" id="tab-spine" class="cover-tab-btn px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold tracking-wide border border-gray-200 bg-white text-gray-700">
+            📏 Gáy 12mm
           </button>
         </div>
       </div>
@@ -677,44 +677,50 @@
         Toàn bộ hệ thống 12 bài học, 282 Hán tự chiết tự và ngân hàng câu hỏi bài tập 185 trang đã được đăng ký quyền tác giả theo Luật SHTT. Nhằm bảo vệ tuyệt đối tài sản trí tuệ và chống sao chép trái phép, website KHÔNG cung cấp liên kết tải file số hóa công khai trực tuyến.
       </p>
 
-      <!-- Trust Badges & Action Options -->
-      <div class="grid sm:grid-cols-2 gap-6 text-left max-w-3xl mx-auto mb-10">
-        <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:border-white/40 transition">
-          <div class="flex items-center space-x-3 mb-3">
-            <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold text-amber-300 text-sm">1</span>
-            <h3 class="font-semibold text-white text-base">Dành Cho Ban Giám Đốc</h3>
+      <!-- Trust Badges & Action Options (Optimized for Mobile) -->
+      <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 text-left max-w-3xl mx-auto mb-10">
+        <!-- Card 1: Ban Giám Đốc -->
+        <div class="bg-white/10 backdrop-blur-md p-5 sm:p-6 rounded-2xl border border-white/20 hover:border-white/40 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center space-x-3 mb-3">
+              <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold text-amber-300 text-sm flex-shrink-0">1</span>
+              <h3 class="font-semibold text-white text-base">Dành Cho Ban Giám Đốc</h3>
+            </div>
+            <p class="text-xs text-white/80 leading-relaxed mb-5">
+              Quý Lãnh đạo và Hội đồng chuyên môn có thể đăng ký nhận cuốn sách mẫu in màu thực tế (Hard copy 185 trang) gửi trực tiếp về đơn vị để thẩm định chất lượng in ấn offset và mỹ thuật.
+            </p>
           </div>
-          <p class="text-xs text-white/75 leading-relaxed mb-4">
-            Quý Lãnh đạo và Hội đồng chuyên môn có thể đăng ký nhận cuốn sách mẫu in màu thực tế (Hard copy 185 trang) gửi trực tiếp về đơn vị để thẩm định chất lượng in ấn offset và mỹ thuật.
-          </p>
-          <button onclick="openRequestModal('lanh-dao')" class="inline-flex items-center space-x-1.5 text-xs font-semibold text-amber-300 hover:text-white transition">
+          <a href="https://forms.gle/H9cDjkCnXv2kv3VR8" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center space-x-2 bg-amber-400 hover:bg-amber-300 text-[#8C1D24] px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition shadow-md self-start active:scale-95">
             <span>Đăng ký nhận sách mẫu in</span>
             <span>&rarr;</span>
-          </button>
+          </a>
         </div>
 
-        <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:border-white/40 transition">
-          <div class="flex items-center space-x-3 mb-3">
-            <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold text-amber-300 text-sm">2</span>
-            <h3 class="font-semibold text-white text-base">Dành Cho Giảng Viên Đào Tạo</h3>
+        <!-- Card 2: Giảng Viên Đào Tạo -->
+        <div class="bg-white/10 backdrop-blur-md p-5 sm:p-6 rounded-2xl border border-white/20 hover:border-white/40 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center space-x-3 mb-3">
+              <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold text-amber-300 text-sm flex-shrink-0">2</span>
+              <h3 class="font-semibold text-white text-base">Dành Cho Giảng Viên Đào Tạo</h3>
+            </div>
+            <p class="text-xs text-white/80 leading-relaxed mb-5">
+              Đội ngũ giáo viên muốn thẩm định slide bài giảng, ngân hàng bài tập hoặc đăng ký lớp dạy thử nghiệm vui lòng liên hệ Ban Đào Tạo để nhận tài khoản truy cập tài liệu số hóa có watermark bảo mật.
+            </p>
           </div>
-          <p class="text-xs text-white/75 leading-relaxed mb-4">
-            Đội ngũ giáo viên muốn thẩm định slide bài giảng, ngân hàng bài tập hoặc đăng ký lớp dạy thử nghiệm vui lòng liên hệ Ban Đào Tạo để nhận tài khoản truy cập tài liệu số hóa có watermark bảo mật.
-          </p>
-          <button onclick="openRequestModal('giang-vien')" class="inline-flex items-center space-x-1.5 text-xs font-semibold text-amber-300 hover:text-white transition">
+          <a href="https://forms.gle/H9cDjkCnXv2kv3VR8" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center space-x-2 bg-white/20 hover:bg-white/30 text-white border border-white/35 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition shadow-md self-start active:scale-95">
             <span>Liên hệ cấp quyền chuyên môn</span>
             <span>&rarr;</span>
-          </button>
+          </a>
         </div>
       </div>
 
-      <!-- Contact Banner -->
-      <div class="inline-flex flex-wrap items-center justify-center gap-4 text-xs text-white/80 bg-black/20 px-6 py-3 rounded-full border border-white/10">
+      <!-- Contact Banner (Mobile-Friendly & Hotline Phone Number) -->
+      <div class="inline-flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm text-white/90 bg-black/25 px-5 py-3.5 sm:px-8 sm:py-3 rounded-2xl sm:rounded-full border border-white/10 shadow-inner max-w-full">
         <span>Tác giả & Chủ nhiệm Đề án: <strong>Vũ Kim Anh</strong></span>
-        <span class="hidden sm:inline">|</span>
+        <span class="hidden sm:inline text-white/30">|</span>
         <span>Đơn vị phát hành: <strong>Học Viện Tiếng Trung</strong></span>
-        <span class="hidden sm:inline">|</span>
-        <span>Hotline / Zalo: <strong>Ban Đào Tạo & Khảo Thí</strong></span>
+        <span class="hidden sm:inline text-white/30">|</span>
+        <span>Hotline / Zalo: <a href="https://zalo.me/0332756267" target="_blank" rel="noopener noreferrer" class="text-amber-300 hover:text-white font-bold underline underline-offset-2">0332.756.267</a> (<a href="tel:0332756267" class="hover:underline">Gọi điện</a>)</span>
       </div>
     </div>
   </section>
@@ -879,10 +885,12 @@
       target.innerHTML = '';
       
       try {
+        const isMobile = window.innerWidth < 640;
+        const hwDim = isMobile ? 112 : 126;
         labWriter = HanziWriter.create('hanzi-character-target', char, {
-          width: 126,
-          height: 126,
-          padding: 6,
+          width: hwDim,
+          height: hwDim,
+          padding: isMobile ? 4 : 6,
           showOutline: true,
           strokeAnimationSpeed: 1.1,
           delayBetweenStrokes: 130,
@@ -890,7 +898,7 @@
           radicalColor: '#8C1D24',     // Màu đỏ son cho Bộ Thủ
           outlineColor: '#E2DCD5',     // Nét mờ chỉ dẫn
           drawingColor: '#8C1D24',     // Nét khi người dùng vẽ
-          drawingWidth: 12,
+          drawingWidth: isMobile ? 10 : 12,
           showHintAfterMisses: 1
         });
         labWriter.animateCharacter();
@@ -931,9 +939,9 @@
     function changeChar(index) {
       document.querySelectorAll('.char-nav-btn').forEach((btn, idx) => {
         if (idx === index) {
-          btn.className = "char-nav-btn px-6 py-2.5 rounded-full text-sm font-semibold border border-[#8C1D24] bg-[#8C1D24] text-white shadow-sm transition";
+          btn.className = "char-nav-btn px-3.5 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold border border-[#8C1D24] bg-[#8C1D24] text-white shadow-sm transition truncate";
         } else {
-          btn.className = "char-nav-btn px-6 py-2.5 rounded-full text-sm font-semibold border border-gray-300 bg-white text-gray-700 hover:border-[#8C1D24] transition";
+          btn.className = "char-nav-btn px-3.5 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold border border-gray-300 bg-white text-gray-700 hover:border-[#8C1D24] transition truncate";
         }
       });
 
@@ -1105,15 +1113,9 @@
       }
     };
 
-    // 6. Modal Functions (GLOBAL)
+    // 6. Modal Functions (Links to Google Form)
     window.openRequestModal = function(type) {
-      const modal = document.getElementById('request-modal');
-      const sel = document.getElementById('modal-request-type');
-      if (modal) modal.classList.remove('hidden');
-      if (sel && type === 'lanh-dao') sel.value = 'hard-copy';
-      if (sel && type === 'giang-vien') sel.value = 'pilot-class';
-      document.getElementById('modal-form-view').classList.remove('hidden');
-      document.getElementById('modal-success-view').classList.add('hidden');
+      window.open('https://forms.gle/H9cDjkCnXv2kv3VR8', '_blank');
     };
 
     window.closeRequestModal = function() {
